@@ -235,15 +235,16 @@ export const CSS = `
 @media (max-width:900px){
   .nkbot-fab{right:1.2rem;bottom:5rem}
   .nkbot-teaser{right:5.2rem;bottom:5.4rem}
-  .nkbot-panel{right:1.2rem;bottom:9rem;height:min(640px,calc(100dvh - 11rem))}
+  .nkbot-panel{right:1.2rem;bottom:9rem;width:min(400px,calc(100vw - 2.4rem));height:min(640px,calc(100dvh - 11rem))}
 }
 @media (max-width:600px){
   .nkbot-panel{
     inset:0;width:100%;height:100vh;height:100dvh;border-radius:0;border:none;transform:translateY(24px);
     transform-origin:bottom center;
   }
+  .nkbot-fab{right:1rem;bottom:max(1rem,env(safe-area-inset-bottom));width:54px;height:54px}
   .nkbot-fab.is-open{opacity:0;pointer-events:none}
-  .nkbot-teaser{max-width:200px}
+  .nkbot-teaser{right:4.8rem;bottom:calc(max(1rem,env(safe-area-inset-bottom)) + 0.3rem);max-width:min(200px,calc(100vw - 6rem))}
   .nkbot-input{font-size:16px} /* prevents iOS zoom on focus */
   .nkbot-hint{display:none}
   .nkbot-head{padding-top:max(16px,env(safe-area-inset-top))}

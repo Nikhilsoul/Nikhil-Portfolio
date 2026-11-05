@@ -279,7 +279,7 @@ export default function NikhilPortfolio() {
 
       <section id="nk-hero" className="nk-section">
         <div>
-          <div className="nk-hero-tag">Available for opportunities</div>
+          <div className="nk-hero-tag">Open to work</div>
           <h1>
             Nikhil<br />
             <span className="nk-line2" ref={typedRoleRef}>Kumar</span>
@@ -298,7 +298,7 @@ export default function NikhilPortfolio() {
           <div className="nk-orbit"><div className="nk-orbit-dot" /></div>
           <div className="nk-hero-card">
             <div className="nk-hero-avatar">
-              <img src="/assets/image.png" alt="Nikhil Kumar" />
+              <img src="/assets/image.jpg" alt="Nikhil Kumar" />
             </div>
             <div className="nk-hero-card-name">Nikhil Kumar</div>
             <div className="nk-hero-card-role">Full Stack Developer</div>

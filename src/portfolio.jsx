@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import image from "./assets/image.png";
+import image from "./assets/image.jpg";
 
 export default function NikhilPortfolio() {
   const cursorRef = useRef(null);
@@ -136,7 +136,7 @@ export default function NikhilPortfolio() {
           --accent2: #7c3aed;
           --accent3: #10b981;
           --text: #e6edf3;
-          --muted: #7d8590;
+          --muted: #a1aab5;
           --border: rgba(255,255,255,0.07);
           --card: rgba(22,27,34,0.8);
           background: var(--bg);
@@ -213,7 +213,6 @@ export default function NikhilPortfolio() {
         .nk-resume-fab:hover { transform:scale(1.07);
           box-shadow:0 0 0 1px rgba(255,255,255,0.2),0 12px 44px rgba(0,229,255,0.45); }
         .nk-resume-fab:focus-visible { outline:2px solid var(--accent);outline-offset:3px; }
-
         .nk-resume-backdrop { position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.68);
           backdrop-filter:blur(4px);display:flex;justify-content:flex-end; }
         .nk-resume-panel { width:min(760px,100%);height:100%;display:flex;flex-direction:column;
@@ -247,6 +246,7 @@ export default function NikhilPortfolio() {
           display:flex;align-items:center;justify-content:center;
           font-family:'Syne',sans-serif;font-weight:800;font-size:2.5rem;color:#000;
           position:relative;z-index:1;box-shadow:0 0 40px rgba(0,229,255,0.3); }
+        .nk-hero-avatar img { display:block;width:100%;height:100%;border-radius:inherit;object-fit:cover; }
         .nk-hero-card-name { font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;position:relative;z-index:1; }
         .nk-hero-card-role { font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--accent);
           letter-spacing:2px;position:relative;z-index:1; }
@@ -353,21 +353,65 @@ export default function NikhilPortfolio() {
         @keyframes nk-drift { from{transform:translate(0,0);} to{transform:translate(40px,30px);} }
 
         @media(max-width:900px){
-          .nk-nav { padding:1rem 2rem; }
+          .nk-nav { padding:0.9rem 1.5rem; }
           .nk-nav-links { display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);
-            flex-direction:column;padding:1.5rem 2rem;gap:1.5rem;border-bottom:1px solid var(--border); }
+            flex-direction:column;padding:1rem 1.5rem;gap:0.25rem;border-bottom:1px solid var(--border); }
           .nk-nav-links.open { display:flex; }
-          .nk-nav-toggle { display:block; }
-          .nk-resume-fab { left:1.2rem;bottom:5rem; }
+          .nk-nav-links a { min-height:44px;display:flex;align-items:center; }
+          .nk-nav-toggle { display:block;min-width:44px;min-height:44px; }
+          .nk-cursor,.nk-cursor-ring { display:none; }
+          .nk-resume-fab { left:1rem;bottom:max(1rem,env(safe-area-inset-bottom));width:100px;height:48px; }
+          .nk-resume-panel { width:100%;height:100dvh;border-left:0; }
           .nk-resume-header { padding:1rem; }
           .nk-resume-actions { gap:0.5rem; }
-          .nk-resume-action { padding:0.5rem 0.7rem;font-size:0.72rem; }
-          #nk-hero { grid-template-columns:1fr;gap:2rem;padding-top:8rem; }
-          .nk-hero-visual { display:none; }
+          .nk-resume-action { min-height:44px;padding:0.5rem 0.75rem;font-size:0.72rem; }
+          #nk-hero { grid-template-columns:minmax(0,1fr);gap:2rem;padding-top:7.5rem;min-height:auto; }
+          .nk-hero-visual { display:flex;order:-1; }
+          .nk-hero-card { width:min(100%,340px);height:auto;min-height:340px;padding:2rem 1rem; }
+          .nk-orbit { width:min(400px,calc(100vw - 2rem));height:min(400px,calc(100vw - 2rem)); }
           .nk-section { padding:5rem 2rem; }
           .nk-projects-grid { grid-template-columns:1fr; }
           .nk-contact-wrapper { grid-template-columns:1fr; }
           .nk-footer { flex-direction:column;gap:1rem;text-align:center; }
+        }
+
+        @media(max-width:600px){
+          .nk-nav { padding:0.65rem 1.1rem; }
+          .nk-section { padding:4rem 1.2rem; }
+          #nk-hero { gap:1.5rem;padding-top:6.25rem;padding-bottom:3rem; }
+          .nk-hero-visual { margin-bottom:0.25rem; }
+          .nk-hero-card { min-height:310px;gap:0.8rem; }
+          .nk-hero-avatar { width:112px;height:112px; }
+          .nk-hero-tag { font-size:0.65rem;letter-spacing:2px;margin-bottom:1rem; }
+          .nk-portfolio h1 { font-size:clamp(2.75rem,12vw,4rem);line-height:1.02;margin-bottom:1rem; }
+          .nk-hero-desc { font-size:0.96rem;line-height:1.7;margin-bottom:1.5rem; }
+          .nk-hero-btns { gap:0.7rem; }
+          .nk-hero-btns > * { flex:1 1 140px;min-height:48px;text-align:center; }
+          .btn-primary,.btn-ghost { padding:0.8rem 1rem; }
+          .section-header { margin-bottom:2rem; }
+          .nk-portfolio h2 { font-size:clamp(1.8rem,8vw,2.4rem); }
+          .nk-skills-grid { grid-template-columns:minmax(0,1fr);gap:0.9rem; }
+          .skill-card,.project-card { padding:1.25rem; }
+          .nk-projects-grid { gap:1rem; }
+          .nk-timeline { padding-left:1.5rem; }
+          .nk-timeline-dot { left:-1.95rem; }
+          .nk-contact-wrapper { gap:2rem; }
+          .nk-contact-info { gap:1.25rem; }
+          .nk-contact-value { overflow-wrap:anywhere; }
+          .nk-footer { padding:1.5rem 1.2rem; }
+          .nk-footer-links { gap:0.75rem; }
+          .nk-resume-header { padding:max(0.75rem,env(safe-area-inset-top)) 0.75rem 0.75rem; }
+          .nk-resume-title { font-size:1rem; }
+          .nk-resume-actions { gap:0.4rem; }
+          .nk-resume-action { padding:0.45rem 0.6rem;font-size:0.68rem; }
+          .nk-resume-content { padding:0.5rem; }
+        }
+
+        @media(prefers-reduced-motion:reduce){
+          .nk-portfolio *,.nk-portfolio *::before,.nk-portfolio *::after{
+            animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;
+          }
+          html { scroll-behavior:auto; }
         }
       `}</style>
 
@@ -392,7 +436,7 @@ export default function NikhilPortfolio() {
       {/* HERO */}
       <section id="nk-hero" className="nk-section">
         <div>
-          <div className="nk-hero-tag">Available for opportunities</div>
+          <div className="nk-hero-tag">Open to work</div>
           <h1>
             Nikhil<br />
             <span className="nk-line2" ref={typedRoleRef}>Kumar</span>
